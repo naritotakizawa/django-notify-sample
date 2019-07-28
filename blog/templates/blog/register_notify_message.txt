@@ -1,0 +1,3 @@
+メール通知の申し込みありがとうございます。
+以下のURLにアクセスすると、購読の申し込みが完了します。
+{{ request.scheme }}://{{ request.get_host }}{% url 'blog:subscribe_register' token %}

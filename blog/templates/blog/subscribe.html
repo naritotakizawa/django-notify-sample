@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="manifest" href="/manifest.json" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "あなたのAPP ID",
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+    <h2>メールで新着記事を受け取る</h2>
+    <form action="" method="POST">
+        {{ form.as_p }}
+        <button type="submit">送信</button>
+        {% csrf_token %}
+    </form>
+
+    <h2>Lineで新着記事を受け取る</h2>
+    <p><img src="{% static 'blog/lineqr.png' %}"></p>
+
+    <h2>プッシュ通知で新着記事を受け取る</h2>
+    <div class='onesignal-customlink-container'></div>
+
+    <h2>ブログ記事 フィード</h2>
+    <a href="{% url 'blog:feed' %}">RSS</a>
+{% endblock %}
+

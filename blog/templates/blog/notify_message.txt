@@ -1,0 +1,4 @@
+最新記事のお知らせです。
+
+{{ post.title }}
+{{ request.scheme }}://{{ request.get_host }}{% url 'blog:detail' post.pk %}
